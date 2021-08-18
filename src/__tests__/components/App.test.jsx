@@ -4,8 +4,8 @@ import { act } from 'react-dom/test-utils'
 import { customRender } from '../__utils__/testUtils'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import App from '../../App/App'
-import AppContainer from '../../App/AppContainer'
+import App from '../../app/App'
+import AppContainer from '../../app/AppContainer'
 
 let container = null
 const initialState = {}
@@ -22,14 +22,14 @@ afterEach(() => {
     jest.clearAllMocks()
 })
 
+const render = (component, options = {}) => customRender(component, container, initialState, options)
+
 test('renders component without crashing', () => {
     act(() => {
-        customRender(
+        render(
             <Router>
                 <AppContainer />
-            </Router>,
-            container,
-            initialState
+            </Router>
         )
     })
     const appElement = container.querySelector('.app')
@@ -38,7 +38,7 @@ test('renders component without crashing', () => {
 
 test('renders component without crashing', () => {
     act(() => {
-        customRender(<App />, container, initialState)
+        render(<App />)
     })
     const appElement = container.querySelector('.app')
     expect(appElement).not.toBeNull()

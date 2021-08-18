@@ -1,0 +1,18 @@
+@import '../../App/App.scss';
+
+.content-wrapper {
+    position: absolute;
+    top: var(--app-header-height);
+    height: calc(100% - var(--app-header-height));
+    width: 100%;
+    @include flex($center: true, $dir: row);
+    background-color: var(--app-background-color);
+
+    .content {
+        @include flex($center: true, $dir: row);
+        background-color: white;
+        border-radius: 2px;
+        height: calc(100% - 50px);
+        width: calc(100% - 50px);
+    }
+}

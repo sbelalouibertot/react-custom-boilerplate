@@ -21,6 +21,7 @@
     --app-header-background: #ffffff;
     --app-primary-color: #1432be;
     --app-secondary-color: #757575;
+    --app-background-color: #f1f1f1;
 
     height: 100%;
     width: 100%;
@@ -32,16 +33,5 @@
     }
     @media screen and (max-width: 799px) {
         // Small-screen style
-    }
-
-    .app-content {
-        position: absolute;
-        top: var(--app-header-height);
-        height: calc(100% - var(--app-header-height));
-        width: 100%;
-
-        @include flex($dir: row);
-        position: fixed;
-        align-items: flex-start;
     }
 }
