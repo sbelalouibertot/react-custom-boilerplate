@@ -1,0 +1,47 @@
+@mixin flex($center: false, $dir: column, $wrap: true) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: center;
+
+    @if $center {
+        justify-content: center;
+    } @else {
+        justify-content: flex-start;
+    }
+
+    @if $wrap {
+        flex-wrap: wrap;
+    } @else {
+        flex-wrap: nowrap;
+    }
+}
+
+.app {
+    --app-header-height: 60px;
+    --app-header-background: #ffffff;
+    --app-primary-color: #1432be;
+    --app-secondary-color: #757575;
+
+    height: 100%;
+    width: 100%;
+    background-color: var(--app-background-color);
+    text-align: center;
+
+    @media screen and (min-width: 800px) {
+        // Desktop style
+    }
+    @media screen and (max-width: 799px) {
+        // Small-screen style
+    }
+
+    .app-content {
+        position: absolute;
+        top: var(--app-header-height);
+        height: calc(100% - var(--app-header-height));
+        width: 100%;
+
+        @include flex($dir: row);
+        position: fixed;
+        align-items: flex-start;
+    }
+}

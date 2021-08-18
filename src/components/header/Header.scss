@@ -1,0 +1,35 @@
+@import '../../App/App.scss';
+
+header {
+    --header-side-margin: 24px;
+
+    @include flex($dir: row);
+    justify-content: space-between;
+    position: fixed;
+    z-index: 999999;
+    width: 100%;
+    height: var(--app-header-height);
+    background-color: var(--app-header-background);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+
+    .left-panel,
+    .right-panel {
+        @include flex($dir: row);
+        color: var(--app-background-color);
+    }
+    .left-panel {
+        margin-left: var(--header-side-margin);
+
+        .app-logo {
+            width: 118px;
+            height: 32px;
+            left: 8px;
+            top: 6px;
+            object-fit: contain;
+        }
+    }
+
+    .right-panel {
+        margin-right: var(--header-side-margin);
+    }
+}

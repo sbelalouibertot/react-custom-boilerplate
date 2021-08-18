@@ -1,0 +1,14 @@
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+@import './App/App.scss';
+@import './components/Header/Header.scss';
