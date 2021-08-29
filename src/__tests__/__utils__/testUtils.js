@@ -5,6 +5,8 @@ import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from '../../redux/reducers/rootReducer'
 import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 
 export const getMockedStore = (initialState) => {
     const middlewares = [thunk]
@@ -18,10 +20,17 @@ export const getRealStore = (initialState) => {
     return store
 }
 
-export const customRender = (children, container, initialState, { customState = {}, useRealStore = false } = {}) => {
+export const customRender = (
+    children,
+    container,
+    initialState,
+    { customState = {}, useRealStore = false, history } = {}
+) => {
     const state = { ...initialState, ...customState }
     render(
-        <Provider store={useRealStore ? getRealStore(state) : getMockedStore(state)}>{children}</Provider>,
+        <Provider store={useRealStore ? getRealStore(state) : getMockedStore(state)}>
+            <Router history={history ?? createMemoryHistory()}>{children}</Router>
+        </Provider>,
         container
     )
 }

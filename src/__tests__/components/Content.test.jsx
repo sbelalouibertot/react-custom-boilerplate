@@ -47,7 +47,7 @@ test('should not display content during loading', () => {
     const contentElement = container.querySelector('.content-wrapper .content')
 
     expect(contentElement).toBeNull()
-    expect(contentWrapperElement.querySelector('span').textContent).toBe('Loading')
+    expect(contentWrapperElement.querySelector('p').textContent).toBe('Loading')
 })
 
 test('should not display content if no data', () => {
@@ -58,7 +58,7 @@ test('should not display content if no data', () => {
     const contentElement = container.querySelector('.content-wrapper .content')
 
     expect(contentElement).toBeNull()
-    expect(contentWrapperElement.querySelector('span').textContent).toBe('No data')
+    expect(contentWrapperElement.querySelector('p').textContent).toBe('No data')
 })
 
 test('should display content if data and not loading', () => {
