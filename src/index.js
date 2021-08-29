@@ -1,22 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.scss'
-import AppContainer from './app/AppContainer'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import App from "./app/App";
 
-import { Provider } from 'react-redux'
-import store from './redux/store'
-
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <Router>
-                <Switch>
-                    <AppContainer />
-                </Switch>
-            </Router>
-        </Provider>
-    </React.StrictMode>,
-    document.getElementById('root')
-)
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);

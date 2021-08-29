@@ -80,14 +80,25 @@ There are 3 main reducers :
 
 ![Redux tree](?)
 
+## Routing strategy 🔀
+
+I used [React Router](https://reactrouter.com/web/guides/quick-start). You can see below a simplified chart, including main components, actions and related urls. Urls changes during navigation are made with the <Link /> element when possible, either with history.push().
+To differenciate a manual url change from an automatic change (user click), I compare the action type (push, replace or pop) of history and process my redux actions differently.
+
 ## Unit tests ✔️
 
 Tests have been coded with Jest and are available in the `__tests__` folder.
+
+Most of them are functional tests : dom content is analyzed after rendering components with different props and store data. 
 
 As logic is in a 'container' component, that renders a unique display element, it it possible to test logic & view separately.
 
 -   Logic : Test dom output using a mocked redux initial state (if needed)
 -   View : Test dom output using different props value. Also, as callbacks are passed to the display element props, it is pretty easy to test if they're succesfully called after a user interaction.
+
+Also, user actions can be simulated (e.g user click when opening a message). Some libraries/files are mocked to focus the tests on the behaviour of the component itself.
+
+You will find also unit tests (isolated functions tests with different combinaisons of input parameters).
 
 ## Performances 📈
 
@@ -101,7 +112,11 @@ Configuration files have been customized to optimize performances, including man
 
 ## SEO, accessibility 🔍
 
-Few attributes have been added to index.html, in order to take into account SEO.
+I used specific html attributes and avoid to use divs as much as possible (e.g nav, section, p, button, and also rarer ones like data, time...).
+
+I used Link components (which renders "a' elements) for routing.
+
+Also, few attributes have been added to index.html, in order to take into account SEO.
 
 ## Good practices 📋
 

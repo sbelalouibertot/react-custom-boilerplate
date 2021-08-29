@@ -4,15 +4,15 @@ import './Content.scss'
 const Content = ({ isLoading, data }) => (
     <div className='content-wrapper'>
         {isLoading ? (
-            <span>Loading</span>
+            <p>Loading</p>
         ) : (
             <>
                 {data ? (
                     <div className='content'>
-                        <span>Content</span>
+                        <p>Content</p>
                     </div>
                 ) : (
-                    <span>No data</span>
+                    <p>No data</p>
                 )}
             </>
         )}

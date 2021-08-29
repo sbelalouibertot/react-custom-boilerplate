@@ -16,6 +16,15 @@
     }
 }
 
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .app {
     --app-header-height: 60px;
     --app-header-background: #ffffff;
